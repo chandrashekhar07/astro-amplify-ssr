@@ -1,0 +1,18 @@
+---
+// No getStaticPaths(): with output: 'server' this route is resolved on every request.
+import Layout from '../../layouts/Layout.astro';
+import { getPost } from '../../data/posts';
+
+const post = getPost(Astro.params.slug);
+
+if (!post) {
+	return Astro.rewrite('/404');
+}
+---
+
+<Layout title={post.title}>
+	<h1>{post.title}</h1>
+	<p>{post.body}</p>
+	<p><small>slug: <code>{Astro.params.slug}</code></small></p>
+	<p><a href="/">← Back</a></p>
+</Layout>

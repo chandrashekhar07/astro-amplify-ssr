@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Query string is read at request time, e.g. /hello?name=Chandra
+const name = Astro.url.searchParams.get('name') || 'stranger';
+---
+
+<Layout title="Hello">
+	<h1>Hello, {name}!</h1>
+	<p>Try changing <code>?name=</code> in the URL.</p>
+</Layout>

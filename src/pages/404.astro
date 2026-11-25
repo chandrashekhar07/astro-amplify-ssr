@@ -1,0 +1,10 @@
+---
+// Must stay server-rendered (not prerendered) for astro-aws-amplify.
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Not found">
+	<h1>404: Page not found</h1>
+	<p>Nothing lives at <code>{Astro.url.pathname}</code>.</p>
+	<p><a href="/">Go home</a></p>
+</Layout>

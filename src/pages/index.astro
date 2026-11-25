@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { posts } from '../data/posts';
+---
+
+<Layout title="Home">
+	<h1>Astro SSR on AWS Amplify</h1>
+	<p>Every page here is server-rendered per request. Reload and watch the timestamp in the footer change.</p>
+
+	<h2>Posts (dynamic route)</h2>
+	<ul>
+		{
+			posts.map((post) => (
+				<li>
+					<a href={`/posts/${post.slug}`}>{post.title}</a>
+				</li>
+			))
+		}
+		<li><a href="/posts/does-not-exist">A post that doesn't exist (404)</a></li>
+	</ul>
+</Layout>
